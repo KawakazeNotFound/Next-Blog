@@ -1,13 +1,12 @@
-import { useCenterStore } from '@/hooks/use-center'
 import GithubSVG from '@/svgs/github.svg'
 import { ANIMATION_DELAY, CARD_SPACING } from '@/consts'
-import { styles as hiCardStyles } from './hi-card'
 import JuejinSVG from '@/svgs/juejin.svg'
 import EmailSVG from '@/svgs/email.svg'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { useSize } from '@/hooks/use-size'
+import { useCardLayout } from './hooks/use-card-layout'
 
 export const styles = {
 	width: 315,
@@ -18,8 +17,8 @@ export const styles = {
 let delay = 100
 
 export default function SocialButtons() {
-	const center = useCenterStore()
 	const { maxSM, init } = useSize()
+	const hiLayout = useCardLayout('hi-card')
 	if (maxSM && init) {
 		styles.order = 0
 		delay = 0
@@ -33,12 +32,13 @@ export default function SocialButtons() {
 		setTimeout(() => setTertiaryShow(true), styles.order * ANIMATION_DELAY * 1000 + 2 * delay)
 	}, [])
 
-	if (show)
+	if (show) {
+		const basePosition = {
+			left: hiLayout.x + (hiLayout.width ?? 0) / 2,
+			top: hiLayout.y + (hiLayout.height ?? 0) / 2 + CARD_SPACING
+		}
 		return (
-			<motion.div
-				className='absolute max-sm:static'
-				animate={{ left: center.x + hiCardStyles.width / 2, top: center.y + hiCardStyles.height / 2 + CARD_SPACING }}
-				initial={{ left: center.x + hiCardStyles.width / 2, top: center.y + hiCardStyles.height / 2 + CARD_SPACING }}>
+			<motion.div className='absolute max-sm:static' animate={basePosition} initial={basePosition}>
 				<div className='absolute top-0 right-0 flex items-center gap-3 max-sm:static'>
 					{tertiaryShow && (
 						<motion.a
@@ -85,5 +85,6 @@ export default function SocialButtons() {
 				</div>
 			</motion.div>
 		)
+	}
 	return null
 }

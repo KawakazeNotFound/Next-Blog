@@ -11,6 +11,7 @@ import AritcleCard from '@/app/(home)/aritcle-card'
 import WriteButtons from '@/app/(home)/write-buttons'
 import LikePosition from './like-position'
 import { useSize } from '@/hooks/use-size'
+import LayoutEditorToolbar from './layout-editor-toolbar'
 
 export default function Home() {
 	const { maxSM } = useSize()
@@ -27,6 +28,8 @@ export default function Home() {
 			<AritcleCard />
 			{!maxSM && <WriteButtons />}
 			<LikePosition />
+
+			<LayoutEditorToolbar />
 		</div>
 	)
 }

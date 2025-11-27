@@ -9,6 +9,7 @@ import { useConfigStore } from './stores/config-store'
 import { pushSiteContent } from './services/push-site-content'
 import type { SiteContent } from './stores/config-store'
 import { hashFileSHA256 } from '@/lib/file-utils'
+import { useHomeLayoutStore } from './stores/layout-store'
 
 export type FileItem = { type: 'file'; file: File; previewUrl: string; hash?: string } | { type: 'url'; url: string }
 
@@ -20,6 +21,7 @@ interface ConfigDialogProps {
 export default function ConfigDialog({ open, onClose }: ConfigDialogProps) {
 	const { isAuth, setPrivateKey } = useAuthStore()
 	const { siteContent, setSiteContent, regenerateBubbles } = useConfigStore()
+	const enterEditMode = useHomeLayoutStore(state => state.enterEditMode)
 	const [formData, setFormData] = useState<SiteContent>(siteContent)
 	const [originalData, setOriginalData] = useState<SiteContent>(siteContent)
 	const [isSaving, setIsSaving] = useState(false)
@@ -236,6 +238,11 @@ export default function ConfigDialog({ open, onClose }: ConfigDialogProps) {
 
 	const buttonText = isAuth ? '保存' : '导入密钥'
 
+	const handleEnterLayoutEdit = () => {
+		enterEditMode()
+		onClose()
+	}
+
 	return (
 		<>
 			<input
@@ -254,6 +261,13 @@ export default function ConfigDialog({ open, onClose }: ConfigDialogProps) {
 				<div className='mb-6 flex items-center justify-between'>
 					<h2 className='text-xl font-semibold'>站点配置</h2>
 					<div className='flex gap-3'>
+						<motion.button
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
+							onClick={handleEnterLayoutEdit}
+							className='rounded-xl border bg-white/60 px-6 py-2 text-sm'>
+							更改界面
+						</motion.button>
 						<motion.button
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}

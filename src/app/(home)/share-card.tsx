@@ -3,10 +3,9 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Card from '@/components/card'
-import { useCenterStore } from '@/hooks/use-center'
-import { styles as hiCardStyles } from './hi-card'
-import { styles as socialButtonsStyles } from './social-buttons'
-import { CARD_SPACING } from '@/consts'
+import EditModeCard from '@/components/edit-mode-card'
+import { useCardLayout } from './hooks/use-card-layout'
+import { useHomeLayoutStore } from './stores/layout-store'
 import shareList from '@/app/share/list.json'
 import Link from 'next/link'
 
@@ -25,7 +24,8 @@ type ShareItem = {
 }
 
 export default function ShareCard() {
-	const center = useCenterStore()
+	const layout = useCardLayout('share-card')
+	const isEditMode = useHomeLayoutStore(state => state.isEditMode)
 	const [randomItem, setRandomItem] = useState<ShareItem | null>(null)
 
 	useEffect(() => {
@@ -37,12 +37,8 @@ export default function ShareCard() {
 		return null
 	}
 
-	return (
-		<Card
-			order={styles.order}
-			width={styles.width}
-			x={center.x + hiCardStyles.width / 2 - socialButtonsStyles.width}
-			y={center.y + hiCardStyles.height / 2 + CARD_SPACING + socialButtonsStyles.height + CARD_SPACING}>
+	const content = (
+		<>
 			<h2 className='text-secondary text-sm'>随机推荐</h2>
 
 			<Link href='/share' className='mt-2 block space-y-2'>
@@ -55,6 +51,28 @@ export default function ShareCard() {
 
 				<p className='text-secondary line-clamp-3 text-xs'>{randomItem.description}</p>
 			</Link>
+		</>
+	)
+
+	if (isEditMode) {
+		return (
+			<EditModeCard
+				cardId='share-card'
+				width={layout.width}
+				height={layout.height}
+				offsetX={layout.offsetX}
+				offsetY={layout.offsetY}
+				order={layout.order}
+				x={layout.x}
+				y={layout.y}>
+				{content}
+			</EditModeCard>
+		)
+	}
+
+	return (
+		<Card order={layout.order} width={layout.width} height={layout.height} x={layout.x} y={layout.y}>
+			{content}
 		</Card>
 	)
 }

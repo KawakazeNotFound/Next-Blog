@@ -2,13 +2,11 @@ import { ANIMATION_DELAY, CARD_SPACING } from '@/consts'
 import PenSVG from '@/svgs/pen.svg'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { styles as hiCardStyles } from './hi-card'
-import { styles as clockCardStyles } from './clock-card'
-import { useCenterStore } from '@/hooks/use-center'
 import { useRouter } from 'next/navigation'
 import { useSize } from '@/hooks/use-size'
 import DotsSVG from '@/svgs/dots.svg'
 import ConfigDialog from './config-dialog'
+import { useCardLayout } from './hooks/use-card-layout'
 
 const styles = {
 	height: 42,
@@ -16,10 +14,11 @@ const styles = {
 }
 
 export default function WriteButton() {
-	const center = useCenterStore()
 	const { maxSM } = useSize()
 	const router = useRouter()
 	const [isConfigOpen, setIsConfigOpen] = useState(false)
+	const hiLayout = useCardLayout('hi-card')
+	const clockLayout = useCardLayout('clock-card')
 
 	const [show, setShow] = useState(false)
 	useEffect(() => {
@@ -33,12 +32,12 @@ export default function WriteButton() {
 	return (
 		<motion.div
 			initial={{
-				left: center.x + CARD_SPACING + hiCardStyles.width / 2,
-				top: center.y - clockCardStyles.offset - styles.height - CARD_SPACING / 2 - clockCardStyles.height
+				left: hiLayout.x + (hiLayout.width ?? 0) / 2 + CARD_SPACING,
+				top: clockLayout.y - CARD_SPACING / 2 - styles.height
 			}}
 			animate={{
-				left: center.x + CARD_SPACING + hiCardStyles.width / 2,
-				top: center.y - clockCardStyles.offset - styles.height - CARD_SPACING / 2 - clockCardStyles.height
+				left: hiLayout.x + (hiLayout.width ?? 0) / 2 + CARD_SPACING,
+				top: clockLayout.y - CARD_SPACING / 2 - styles.height
 			}}
 			className='absolute flex items-center gap-4'>
 			<motion.button

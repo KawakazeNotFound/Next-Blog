@@ -1,5 +1,7 @@
-import { useCenterStore } from '@/hooks/use-center'
 import Card from '@/components/card'
+import EditModeCard from '@/components/edit-mode-card'
+import { useCardLayout } from './hooks/use-card-layout'
+import { useHomeLayoutStore } from './stores/layout-store'
 
 export const styles = {
 	width: 360,
@@ -22,21 +24,44 @@ function getGreeting() {
 }
 
 export default function HiCard() {
-	const center = useCenterStore()
+	const layout = useCardLayout('hi-card')
+	const isEditMode = useHomeLayoutStore(state => state.isEditMode)
 	const greeting = getGreeting()
-
-	return (
-		<Card
-			order={styles.order}
-			width={styles.width}
-			height={styles.height}
-			x={center.x}
-			y={center.y}
-			className='-translate-1/2 text-center max-sm:static max-sm:translate-0'>
+	const content = (
+		<>
 			<img src='/images/avatar.png' className='mx-auto rounded-full' style={{ width: 120, height: 120, boxShadow: ' 0 16px 32px -5px #E2D9CE' }} />
 			<h1 className='font-averia mt-3 text-2xl'>
 				{greeting} <br /> I'm <span className='text-linear text-[32px]'>Suni</span> , Nice to <br /> meet you!
 			</h1>
+		</>
+	)
+
+	if (isEditMode) {
+		return (
+			<EditModeCard
+				cardId='hi-card'
+				width={layout.width}
+				height={layout.height}
+				offsetX={layout.offsetX}
+				offsetY={layout.offsetY}
+				order={layout.order}
+				x={layout.x}
+				y={layout.y}
+				className='-translate-1/2 text-center max-sm:static max-sm:translate-0'>
+				{content}
+			</EditModeCard>
+		)
+	}
+
+	return (
+		<Card
+			order={layout.order}
+			width={layout.width}
+			height={layout.height}
+			x={layout.x}
+			y={layout.y}
+			className='-translate-1/2 text-center max-sm:static max-sm:translate-0'>
+			{content}
 		</Card>
 	)
 }

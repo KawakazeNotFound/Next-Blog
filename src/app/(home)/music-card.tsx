@@ -1,9 +1,7 @@
 import Card from '@/components/card'
-import { useCenterStore } from '@/hooks/use-center'
-import { styles as hiCardStyles } from './hi-card'
-import { CARD_SPACING } from '@/consts'
-import { styles as clockCardStyles } from './clock-card'
-import { styles as calendarCardStyles } from './calendar-card'
+import EditModeCard from '@/components/edit-mode-card'
+import { useCardLayout } from './hooks/use-card-layout'
+import { useHomeLayoutStore } from './stores/layout-store'
 import MusicSVG from '@/svgs/music.svg'
 import PlaySVG from '@/svgs/play.svg'
 
@@ -15,16 +13,10 @@ export const styles = {
 }
 
 export default function MusicCard() {
-	const center = useCenterStore()
-
-	return (
-		<Card
-			order={styles.order}
-			width={styles.width}
-			height={styles.height}
-			x={center.x + CARD_SPACING + hiCardStyles.width / 2 - styles.offset}
-			y={center.y - clockCardStyles.offset + CARD_SPACING + calendarCardStyles.height + CARD_SPACING}
-			className='flex items-center gap-3'>
+	const layout = useCardLayout('music-card')
+	const isEditMode = useHomeLayoutStore(state => state.isEditMode)
+	const content = (
+		<>
 			<MusicSVG className='h-8 w-8' />
 
 			<div className='flex-1'>
@@ -38,6 +30,29 @@ export default function MusicCard() {
 			<button className='flex h-10 w-10 items-center justify-center rounded-full bg-white'>
 				<PlaySVG className='text-brand ml-1 h-4 w-4' />
 			</button>
+		</>
+	)
+
+	if (isEditMode) {
+		return (
+			<EditModeCard
+				cardId='music-card'
+				width={layout.width}
+				height={layout.height}
+				offsetX={layout.offsetX}
+				offsetY={layout.offsetY}
+				order={layout.order}
+				x={layout.x}
+				y={layout.y}
+				className='flex items-center gap-3'>
+				{content}
+			</EditModeCard>
+		)
+	}
+
+	return (
+		<Card order={layout.order} width={layout.width} height={layout.height} x={layout.x} y={layout.y} className='flex items-center gap-3'>
+			{content}
 		</Card>
 	)
 }

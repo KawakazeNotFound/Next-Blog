@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Card from '@/components/card'
-import { useCenterStore } from '@/hooks/use-center'
-import { CARD_SPACING } from '@/consts'
-import { styles as hiCardStyles } from './hi-card'
+import EditModeCard from '@/components/edit-mode-card'
+import { useCardLayout } from './hooks/use-card-layout'
+import { useHomeLayoutStore } from './stores/layout-store'
 
 export const styles = {
 	width: 232,
@@ -14,7 +14,8 @@ export const styles = {
 }
 
 export default function ClockCard() {
-	const center = useCenterStore()
+	const layout = useCardLayout('clock-card')
+	const isEditMode = useHomeLayoutStore(state => state.isEditMode)
 	const [time, setTime] = useState(new Date())
 
 	useEffect(() => {
@@ -28,14 +29,35 @@ export default function ClockCard() {
 	const hours = time.getHours().toString().padStart(2, '0')
 	const minutes = time.getMinutes().toString().padStart(2, '0')
 
+	const cardInner = (
+		<div className='flex h-full w-full items-center justify-center gap-1.5 rounded-4xl bg-[#DDDDDD]'>
+			<SevenSegmentDigit value={parseInt(hours[0])} />
+			<SevenSegmentDigit value={parseInt(hours[1])} />
+			<Colon />
+			<SevenSegmentDigit value={parseInt(minutes[0])} />
+			<SevenSegmentDigit value={parseInt(minutes[1])} />
+		</div>
+	)
+
+	if (isEditMode) {
+		return (
+			<EditModeCard
+				cardId='clock-card'
+				width={layout.width}
+				height={layout.height}
+				offsetX={layout.offsetX}
+				offsetY={layout.offsetY}
+				order={layout.order}
+				x={layout.x}
+				y={layout.y}
+				className='p-2'>
+				{cardInner}
+			</EditModeCard>
+		)
+	}
+
 	return (
-		<Card
-			order={styles.order}
-			width={styles.width}
-			height={styles.height}
-			x={center.x + CARD_SPACING + hiCardStyles.width / 2}
-			y={center.y - styles.offset - styles.height}
-			className='p-2'>
+		<Card order={layout.order} width={layout.width} height={layout.height} x={layout.x} y={layout.y} className='p-2'>
 			<div className='flex h-full w-full items-center justify-center gap-1.5 rounded-4xl bg-[#DDDDDD]'>
 				<SevenSegmentDigit value={parseInt(hours[0])} />
 				<SevenSegmentDigit value={parseInt(hours[1])} />

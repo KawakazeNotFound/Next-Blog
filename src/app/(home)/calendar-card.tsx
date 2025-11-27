@@ -1,8 +1,7 @@
 import Card from '@/components/card'
-import { useCenterStore } from '@/hooks/use-center'
-import { CARD_SPACING } from '@/consts'
-import { styles as hiCardStyles } from './hi-card'
-import { styles as clockCardStyles } from './clock-card'
+import EditModeCard from '@/components/edit-mode-card'
+import { useCardLayout } from './hooks/use-card-layout'
+import { useHomeLayoutStore } from './stores/layout-store'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 import { cn } from '@/lib/utils'
@@ -16,7 +15,8 @@ export const styles = {
 }
 
 export default function CalendarCard() {
-	const center = useCenterStore()
+	const layout = useCardLayout('calendar-card')
+	const isEditMode = useHomeLayoutStore(state => state.isEditMode)
 	const now = dayjs()
 	const currentDate = now.date()
 	const firstDayOfMonth = now.startOf('month')
@@ -24,13 +24,8 @@ export default function CalendarCard() {
 	const daysInMonth = now.daysInMonth()
 	const currentWeekday = (now.day() + 6) % 7
 
-	return (
-		<Card
-			order={styles.order}
-			width={styles.width}
-			height={styles.height}
-			x={center.x + CARD_SPACING + hiCardStyles.width / 2}
-			y={center.y - clockCardStyles.offset + CARD_SPACING}>
+	const content = (
+		<>
 			<h3 className='text-secondary text-sm'>
 				{now.format('YYYY/M/D')} {now.format('ddd')}
 			</h3>
@@ -58,6 +53,28 @@ export default function CalendarCard() {
 					)
 				})}
 			</ul>
+		</>
+	)
+
+	if (isEditMode) {
+		return (
+			<EditModeCard
+				cardId='calendar-card'
+				width={layout.width}
+				height={layout.height}
+				offsetX={layout.offsetX}
+				offsetY={layout.offsetY}
+				order={layout.order}
+				x={layout.x}
+				y={layout.y}>
+				{content}
+			</EditModeCard>
+		)
+	}
+
+	return (
+		<Card order={layout.order} width={layout.width} height={layout.height} x={layout.x} y={layout.y}>
+			{content}
 		</Card>
 	)
 }
