@@ -144,9 +144,14 @@ export default function MusicCard() {
 					transition={{ type: 'spring', stiffness: 300, damping: 30 }}
 					onMouseEnter={() => setExpanded(true)}
 					onMouseLeave={() => setExpanded(false)}>
-					<div className={`flex h-full flex-col ${expanded ? '' : 'justify-center'}`}>
-						{/* 主要内容区域 */}
-						<div className='flex items-center gap-3'>
+					<div className='flex h-full flex-col'>
+						{/* 主要内容区域 - 使用 motion 控制垂直位置 */}
+						<motion.div
+							className='flex items-center gap-3'
+							animate={{
+								marginTop: expanded ? 0 : (styles.height - 24 - 40) / 2 - 6 // 居中计算: (卡片高度 - padding - 内容高度) / 2
+							}}
+							transition={{ type: 'spring', stiffness: 300, damping: 30 }}>
 							{/* 封面/默认图标 */}
 							<motion.div
 								className='shrink-0 overflow-hidden rounded-xl bg-white/30'
@@ -203,7 +208,7 @@ export default function MusicCard() {
 									<PlaySVG className='text-brand ml-1 h-4 w-4' />
 								)}
 							</button>
-						</div>
+						</motion.div>
 
 						{/* 展开后的控制区域 */}
 						<AnimatePresence>
