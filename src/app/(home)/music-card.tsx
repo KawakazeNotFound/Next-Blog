@@ -280,22 +280,24 @@ export default function MusicCard() {
 									{/* 控制按钮 */}
 									<div className='flex items-center justify-center gap-4'>
 										{/* 音量控制 */}
-										<div className='group relative flex items-center'>
+										<div className='group relative flex items-center justify-center'>
 											<button
 												onClick={() => setMuted(!muted)}
 												className='rounded-full p-1.5 text-gray-500 transition-colors hover:bg-white/60'>
 												{muted || volume === 0 ? <VolumeX className='h-4 w-4' /> : <Volume2 className='h-4 w-4' />}
 											</button>
-											<div className='absolute left-full ml-1 w-0 overflow-hidden transition-all duration-300 group-hover:w-20'>
-												<input
-													type='range'
-													min='0'
-													max='1'
-													step='0.01'
-													value={muted ? 0 : volume}
-													onChange={handleVolumeChange}
-													className='h-1 w-16 cursor-pointer appearance-none rounded-full bg-gray-200 accent-teal-500'
-												/>
+											<div className='absolute bottom-full left-1/2 mb-2 flex h-0 w-8 -translate-x-1/2 flex-col items-center justify-end overflow-hidden rounded-full bg-white/80 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:h-24 group-hover:py-3'>
+												<div className='relative flex h-20 w-full items-center justify-center'>
+													<input
+														type='range'
+														min='0'
+														max='1'
+														step='0.01'
+														value={muted ? 0 : volume}
+														onChange={handleVolumeChange}
+														className='absolute h-1 w-16 -rotate-90 cursor-pointer appearance-none rounded-full bg-gray-200 accent-brand [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-brand [&::-moz-range-thumb]:border-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-brand'
+													/>
+												</div>
 											</div>
 										</div>
 
