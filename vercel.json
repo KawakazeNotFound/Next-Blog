@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/music/cache",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}

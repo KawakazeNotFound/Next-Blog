@@ -1,0 +1,422 @@
+{
+  "songs": [
+    {
+      "id": 2744460664,
+      "name": "throne of roses(玫瑰王座)",
+      "artist": "Cyan Hymn",
+      "album": "骑士王Saber",
+      "cover": "https://p3.music.126.net/VJB_gi5Ha2-MSd6Sq7pg7Q==/109951171991365516.jpg",
+      "duration": 259519
+    },
+    {
+      "id": 2755240098,
+      "name": "旧歌谣",
+      "artist": "Akie秋绘 / 摆寄魚",
+      "album": "旧歌谣",
+      "cover": "https://p4.music.126.net/GRbb2Kajwj5TTJlfiLtk_w==/109951172147784283.jpg",
+      "duration": 255692
+    },
+    {
+      "id": 451521973,
+      "name": "Nepenthe",
+      "artist": "Masetti",
+      "album": "Nepenthe",
+      "cover": "https://p4.music.126.net/Txz6sqDjJ7LCB9cYwJ8caw==/18701593278545936.jpg",
+      "duration": 248320
+    },
+    {
+      "id": 2148828313,
+      "name": "溶けた声で",
+      "artist": "culicc",
+      "album": "淡い",
+      "cover": "https://p3.music.126.net/2P3e2GUYMvDjiFeFtQlRDg==/109951169526490306.jpg",
+      "duration": 269580
+    },
+    {
+      "id": 2014917358,
+      "name": "皮囊",
+      "artist": "犬儒乐队",
+      "album": "犬儒",
+      "cover": "https://p3.music.126.net/tWgviz-imCloTvUqrMVpZA==/109951168135115539.jpg",
+      "duration": 234857
+    },
+    {
+      "id": 2611991967,
+      "name": "Constellation",
+      "artist": "Aurora Sky / Unseen Skies",
+      "album": "Spirits",
+      "cover": "https://p3.music.126.net/-GzAUpbPPg_29b3ZHFfHGg==/109951169822119867.jpg",
+      "duration": 284500
+    },
+    {
+      "id": 1396766642,
+      "name": "Shelter (R7CKY FLIP)",
+      "artist": "R7CKY / Porter Robinson / Madeon",
+      "album": "Shelter (R7CKY FLIP)",
+      "cover": "https://p3.music.126.net/pmHt5-WPDf6iQ__ybEGiCQ==/109951164425674692.jpg",
+      "duration": 188151
+    },
+    {
+      "id": 2705389881,
+      "name": "The End Life (Stutter House)",
+      "artist": "same赛法利娅 / YaKio / Wehti",
+      "album": "The End Life",
+      "cover": "https://p3.music.126.net/K8SDGcALmG0xHIFSsgLP_Q==/109951170988178492.jpg",
+      "duration": 169761
+    },
+    {
+      "id": 2071957873,
+      "name": "YOU MAKE ME SAD",
+      "artist": "LOVELY BOMB",
+      "album": "",
+      "cover": "https://p4.music.126.net/7k2X5nVgEx0zS81FpFcl9w==/109951168829975011.jpg",
+      "duration": 217662
+    },
+    {
+      "id": 2655014681,
+      "name": "Sunny Rain (feat. Shion)",
+      "artist": "Kirara Magic / Elvin Shen",
+      "album": "Sunny Rain",
+      "cover": "https://p3.music.126.net/GLm2M5HANutjFvsJb89s2w==/109951170241807963.jpg",
+      "duration": 221297
+    },
+    {
+      "id": 1831844248,
+      "name": "夏は三月の野に咲く",
+      "artist": "理想放逐",
+      "album": "夏は三月の野に咲く",
+      "cover": "https://p4.music.126.net/s6R9aG07bmOm9ZAhhDcpcg==/109951165828047302.jpg",
+      "duration": 257147
+    },
+    {
+      "id": 2057277788,
+      "name": "After Class",
+      "artist": "知晏",
+      "album": "After Class",
+      "cover": "https://p3.music.126.net/2rYlbCPWYN2_KvOmXOantA==/109951168689389941.jpg",
+      "duration": 194230
+    },
+    {
+      "id": 1911427000,
+      "name": "做 讓 人 远 远 聽 見 的 風",
+      "artist": "福合埕在逃牛肉丸",
+      "album": "SEASIDE",
+      "cover": "https://p4.music.126.net/bYvHgCMJkuzJkO5WQpUUyg==/109951167828544964.jpg",
+      "duration": 248000
+    },
+    {
+      "id": 2122584352,
+      "name": "mumei",
+      "artist": "七詩ムメイ / TKN",
+      "album": "mumei",
+      "cover": "https://p4.music.126.net/UBhF6KInqTjv1q_lZJny5w==/109951169300038405.jpg",
+      "duration": 252506
+    },
+    {
+      "id": 2166950158,
+      "name": "Chicago In The Summer",
+      "artist": "summer / Jiyon",
+      "album": "Chicago In The Summer",
+      "cover": "https://p4.music.126.net/qjPHGd3xlNCT44uCuKfmSQ==/109951169691284545.jpg",
+      "duration": 226666
+    },
+    {
+      "id": 2609426651,
+      "name": "蓝眼泪",
+      "artist": "吴炳文 / sea蕊 / 榭季生",
+      "album": "蓝眼泪",
+      "cover": "https://p3.music.126.net/EQLkdQzstHOLce3hX2mCVg==/109951169796537197.jpg",
+      "duration": 171428
+    },
+    {
+      "id": 1984067065,
+      "name": "Take Me",
+      "artist": "STRlighT",
+      "album": "Stories",
+      "cover": "https://p3.music.126.net/3wUkLoGs7UJPWl4TlStj1Q==/109951167929634521.jpg",
+      "duration": 233592
+    },
+    {
+      "id": 2658106011,
+      "name": "Late Night Drive",
+      "artist": "DLSS",
+      "album": "Late Night Drive",
+      "cover": "https://p4.music.126.net/3YKfx1-MWPTiLx9_DKbxCA==/109951170281284334.jpg",
+      "duration": 143800
+    },
+    {
+      "id": 2667323549,
+      "name": "Take Me Home（Ft.Ella）",
+      "artist": "Clear Sky",
+      "album": "Take Me Home（我们一起回家）",
+      "cover": "https://p4.music.126.net/KVXNL4bjBV-j8twrGjwW4Q==/109951170395367731.jpg",
+      "duration": 229068
+    },
+    {
+      "id": 2686116213,
+      "name": "You Don't Want Me",
+      "artist": "Bumpÿ",
+      "album": "You Don't Want Me",
+      "cover": "https://p3.music.126.net/HY1_aYosWeE2sC_7pEH9lw==/109951170626189389.jpg",
+      "duration": 258000
+    },
+    {
+      "id": 2082379513,
+      "name": "Redeem",
+      "artist": "Aurora Sky",
+      "album": "Redeem",
+      "cover": "https://p3.music.126.net/jSSul5MHVGs-4KARcl_boQ==/109951168916900934.jpg",
+      "duration": 244450
+    },
+    {
+      "id": 2157172714,
+      "name": "hallucinations",
+      "artist": "Z湛岚L",
+      "album": "hallucinations",
+      "cover": "https://p4.music.126.net/ly_1IuOjBAJa7FinI_lZ4w==/109951169600085541.jpg",
+      "duration": 155402
+    },
+    {
+      "id": 1992710356,
+      "name": "Last Flight",
+      "artist": "BLACKDD / PICK / 小鬼头子 / CYTEAM",
+      "album": "Last Flight",
+      "cover": "https://p4.music.126.net/YoGlM_qM4LnTj7PvmID-RQ==/109951168659005628.jpg",
+      "duration": 195542
+    },
+    {
+      "id": 2160259235,
+      "name": "Goodbye To The Sunset",
+      "artist": "JEReka",
+      "album": "RE-再见日落",
+      "cover": "https://p3.music.126.net/hCArm00E2obEF-SvRDRLcg==/109951169985834089.jpg",
+      "duration": 273343
+    },
+    {
+      "id": 2613950506,
+      "name": "By the Seaside (feat. Kitsui Akira)",
+      "artist": "Kirara Magic",
+      "album": "By the Seaside (feat. Kitsui Akira)",
+      "cover": "https://p4.music.126.net/AJaCmp8sTBvAoWtPFqtCaQ==/109951169840669390.jpg",
+      "duration": 182960
+    },
+    {
+      "id": 2129898729,
+      "name": "星河不及你",
+      "artist": "AnRain安林",
+      "album": "星河不及你",
+      "cover": "https://p4.music.126.net/4VpI1RstX1yv-utOH8Cw5Q==/109951169366522745.jpg",
+      "duration": 161724
+    },
+    {
+      "id": 2609427725,
+      "name": "癔症",
+      "artist": "榭季生",
+      "album": "癔症",
+      "cover": "https://p4.music.126.net/Taf3umVl8_1fmKJ4rteQ0w==/109951169796534700.jpg",
+      "duration": 180970
+    },
+    {
+      "id": 2644041967,
+      "name": "烟火记",
+      "artist": "榭季生",
+      "album": "烟火记",
+      "cover": "https://p4.music.126.net/_PRwqm3oyV59UxFGu8CKkQ==/109951170126190828.jpg",
+      "duration": 283855
+    },
+    {
+      "id": 1459950258,
+      "name": "是想你的声音啊",
+      "artist": "傲七爷（江偌绮）",
+      "album": "是想你的声音啊",
+      "cover": "https://p3.music.126.net/cIR63lyPGgQ4mAyuOTg8lA==/109951165109878587.jpg",
+      "duration": 234811
+    },
+    {
+      "id": 1403318151,
+      "name": "把回忆拼好给你",
+      "artist": "王贰浪",
+      "album": "把回忆拼好给你",
+      "cover": "https://p4.music.126.net/CBx2K_jEN3SNWwYztagPPw==/109951164485969446.jpg",
+      "duration": 381000
+    },
+    {
+      "id": 2098473419,
+      "name": "あの光だってきっと",
+      "artist": "*Luna",
+      "album": "Bed Time Story",
+      "cover": "https://p4.music.126.net/tshpmKH8Mdy3SZeSxn6m3g==/109951169045275756.jpg",
+      "duration": 216866
+    },
+    {
+      "id": 2125293209,
+      "name": "風の私語",
+      "artist": "秋葵AKIAOI / 理想放逐 / 木木壹饺子",
+      "album": "風の私語",
+      "cover": "https://p3.music.126.net/Wcz0ggu2v0njh7teGySypA==/109951169324675079.jpg",
+      "duration": 286241
+    },
+    {
+      "id": 2127330551,
+      "name": "友情と勇気と光の口マン",
+      "artist": "sᴘᴇᴄɪ-ᴀʟʟʏ",
+      "album": "友情と勇気と光の口マン",
+      "cover": "https://p4.music.126.net/ERYtp8UjQMR44gRBAzU16g==/109951169344588378.jpg",
+      "duration": 141583
+    },
+    {
+      "id": 2611995397,
+      "name": "Spirits",
+      "artist": "Aurora Sky / ΓИ7AL",
+      "album": "Spirits",
+      "cover": "https://p3.music.126.net/-GzAUpbPPg_29b3ZHFfHGg==/109951169822119867.jpg",
+      "duration": 316000
+    },
+    {
+      "id": 2611983421,
+      "name": "Lethe",
+      "artist": "Aurora Sky / Litchee",
+      "album": "Spirits",
+      "cover": "https://p4.music.126.net/-GzAUpbPPg_29b3ZHFfHGg==/109951169822119867.jpg",
+      "duration": 232304
+    },
+    {
+      "id": 2611969886,
+      "name": "Cursed",
+      "artist": "Aurora Sky",
+      "album": "Spirits",
+      "cover": "https://p3.music.126.net/-GzAUpbPPg_29b3ZHFfHGg==/109951169822119867.jpg",
+      "duration": 390080
+    },
+    {
+      "id": 1891146284,
+      "name": "【Free】云端飞行",
+      "artist": "Lisure",
+      "album": "【Free】云端飞行",
+      "cover": "https://p3.music.126.net/8i4uxbTqLGQYCDRzsGYnRg==/109951167005269927.jpg",
+      "duration": 180781
+    },
+    {
+      "id": 2105406259,
+      "name": "云海见鲸",
+      "artist": "逆时针向",
+      "album": "云海见鲸",
+      "cover": "https://p4.music.126.net/mthE6_kAATxmdrzkPxOFZA==/109951169135470761.jpg",
+      "duration": 193200
+    },
+    {
+      "id": 2074412545,
+      "name": "End of regret",
+      "artist": "MoreanP",
+      "album": "End of regret",
+      "cover": "https://p4.music.126.net/coMxVRP1c8z5bhyaHbWLDg==/109951170372275343.jpg",
+      "duration": 184690
+    },
+    {
+      "id": 2134833407,
+      "name": "Vanitas ac Redemptionis",
+      "artist": "Ary-You",
+      "album": "Vanitas ac Redemptionis",
+      "cover": "https://p3.music.126.net/VIdH24KnwkYFgp1FJGqWNw==/109951169405556442.jpg",
+      "duration": 158080
+    },
+    {
+      "id": 2160217414,
+      "name": "you&i",
+      "artist": "Bumpÿ / JerScO",
+      "album": "moon & sun",
+      "cover": "https://p4.music.126.net/nyegrWI5a6sBTyrwNKeH7w==/109951169628322538.jpg",
+      "duration": 219204
+    },
+    {
+      "id": 1467632845,
+      "name": "Saccharin (Acoustic)",
+      "artist": "JigglePuff / 陈睿凡",
+      "album": "Found & Lost - EP",
+      "cover": "https://p3.music.126.net/clA8qQVAYrXBCR4j7Hth-w==/109951165193274471.jpg",
+      "duration": 225454
+    },
+    {
+      "id": 2140639089,
+      "name": "Aurora (Explicit)",
+      "artist": "EREAL / Z湛岚L",
+      "album": "Aurora PHONK",
+      "cover": "https://p4.music.126.net/2TsPg10LorFnl5rZBO4IFA==/109951169453193131.jpg",
+      "duration": 150381
+    },
+    {
+      "id": 2098472572,
+      "name": "メタフィクション",
+      "artist": "*Luna / ねんね",
+      "album": "Bed Time Story",
+      "cover": "https://p4.music.126.net/tshpmKH8Mdy3SZeSxn6m3g==/109951169045275756.jpg",
+      "duration": 259080
+    },
+    {
+      "id": 2096174376,
+      "name": "Go With You",
+      "artist": "Little End",
+      "album": "Go With You",
+      "cover": "https://p3.music.126.net/H48072M7xthH3JoIs7D_zw==/109951169026915878.jpg",
+      "duration": 406151
+    },
+    {
+      "id": 1808505423,
+      "name": "Look up to the Stars",
+      "artist": "DInxm Robinson",
+      "album": "Look up to the Stars",
+      "cover": "https://p4.music.126.net/Femb8odNBZ9_cm_mQpzmHw==/109951165595838890.jpg",
+      "duration": 291164
+    },
+    {
+      "id": 1956596535,
+      "name": "Wet Cat Steps",
+      "artist": "Little End",
+      "album": "Wet Cat Steps",
+      "cover": "https://p3.music.126.net/BYo6cyFHm_10Q-g3H-hbhg==/109951167560740316.jpg",
+      "duration": 367941
+    },
+    {
+      "id": 2153417576,
+      "name": "AWAKE (醒来)",
+      "artist": "Tangent",
+      "album": "AWAKE (醒来)",
+      "cover": "https://p3.music.126.net/x-1uuKjTYgyQ_5SEse1qIQ==/109951169568966943.jpg",
+      "duration": 206406
+    },
+    {
+      "id": 2035130279,
+      "name": "她和她的她",
+      "artist": "忘乡 / 兔子ST",
+      "album": "她和她的她",
+      "cover": "https://p3.music.126.net/Zh4NuQr6j2lEQuSjpKwCCw==/109951168509528322.jpg",
+      "duration": 182500
+    },
+    {
+      "id": 2027107811,
+      "name": "春野",
+      "artist": "夏小调",
+      "album": "春の野",
+      "cover": "https://p4.music.126.net/E6JUAzvIdM_XZnp8G9O1kQ==/109951168439518997.jpg",
+      "duration": 253806
+    },
+    {
+      "id": 28196527,
+      "name": "谢衣之死(谢衣死后)",
+      "artist": "骆集益",
+      "album": "古剑奇谭2 原声集",
+      "cover": "https://p3.music.126.net/ZJdTyqt0GNIEqpm6oixYig==/5850501371522847.jpg",
+      "duration": 95000
+    },
+    {
+      "id": 1432429010,
+      "name": "星芒(inst.)",
+      "artist": "HawkLegend",
+      "album": "星芒(inst.)",
+      "cover": "https://p3.music.126.net/-X3hzlMMT5itOUOSfVvWiw==/109951164820621726.jpg",
+      "duration": 270000
+    }
+  ],
+  "updatedAt": "2025-12-04T10:37:22.716Z",
+  "total": 52
+}
