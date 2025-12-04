@@ -9,17 +9,20 @@ interface ConfigStore {
 	siteContent: SiteContent
 	cardStyles: CardStyles
 	regenerateKey: number
+	musicExpanded: boolean
 	setSiteContent: (content: SiteContent) => void
 	setCardStyles: (styles: CardStyles) => void
 	resetSiteContent: () => void
 	resetCardStyles: () => void
 	regenerateBubbles: () => void
+	setMusicExpanded: (expanded: boolean) => void
 }
 
 export const useConfigStore = create<ConfigStore>((set, get) => ({
 	siteContent: { ...siteContent },
 	cardStyles: { ...cardStyles },
 	regenerateKey: 0,
+	musicExpanded: false,
 	setSiteContent: (content: SiteContent) => {
 		set({ siteContent: content })
 	},
@@ -34,6 +37,9 @@ export const useConfigStore = create<ConfigStore>((set, get) => ({
 	},
 	regenerateBubbles: () => {
 		set(state => ({ regenerateKey: state.regenerateKey + 1 }))
+	},
+	setMusicExpanded: (expanded: boolean) => {
+		set({ musicExpanded: expanded })
 	}
 }))
 
