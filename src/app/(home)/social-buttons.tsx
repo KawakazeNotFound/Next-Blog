@@ -2,7 +2,7 @@ import { useCenterStore } from '@/hooks/use-center'
 import GithubSVG from '@/svgs/github.svg'
 import { ANIMATION_DELAY, CARD_SPACING } from '@/consts'
 import { useConfigStore } from './stores/config-store'
-import JuejinSVG from '@/svgs/juejin.svg'
+import NcmSVG from '@/svgs/ncm.svg'
 import EmailSVG from '@/svgs/email.svg'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
@@ -43,7 +43,7 @@ export default function SocialButtons() {
 				<div className='absolute top-0 left-0 flex items-center justify-end gap-3 max-sm:static' style={{ width: styles.width }}>
 					{tertiaryShow && (
 						<motion.a
-							href='https://github.com/yysuni'
+							href='https://github.com/KawakazeNotFound'
 							target='_blank'
 							initial={{ opacity: 0, scale: 0.6 }}
 							animate={{ opacity: 1, scale: 1 }}
@@ -58,15 +58,15 @@ export default function SocialButtons() {
 
 					{secondaryShow && (
 						<motion.a
-							href='https://juejin.cn/user/2427311675422382'
+							href='https://music.163.com/#/user/home?id=1646867891'
 							target='_blank'
 							initial={{ opacity: 0, scale: 0.6 }}
 							animate={{ opacity: 1, scale: 1 }}
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							className='card relative flex items-center gap-2 rounded-xl px-3 py-2.5 font-medium whitespace-nowrap'>
-							<JuejinSVG className='h-6 w-6' />
-							稀土掘金
+							<NcmSVG className='h-6 w-6' />
+							网易云
 						</motion.a>
 					)}
 
