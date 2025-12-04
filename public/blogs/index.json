@@ -1,5 +1,12 @@
 [
   {
+    "slug": "disc-gen",
+    "title": " 关于 GAN 的 loss_disc 和 loss_gen 的关系",
+    "tags": [],
+    "date": "2025-12-04",
+    "summary": "介绍 GAN 的 loss_disc 和 loss_gen 的关系"
+  },
+  {
     "slug": "readme",
     "title": "2025 Blog 的使用引导",
     "tags": [
