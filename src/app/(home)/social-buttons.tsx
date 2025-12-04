@@ -72,7 +72,7 @@ export default function SocialButtons() {
 
 					<motion.button
 						onClick={() => {
-							navigator.clipboard.writeText('yysuni1001@gmail.com').then(() => {
+							navigator.clipboard.writeText('loxuexiaobanve@gmail.com').then(() => {
 								toast.success('邮箱已复制到剪贴板')
 							})
 						}}
