@@ -175,7 +175,7 @@ export default function MusicCard() {
 		<>
 			<HomeDraggableLayer cardKey='musicCard' x={x} y={y} width={styles.width} height={styles.height}>
 				<motion.div
-					className='card absolute cursor-pointer'
+					className={cn('card absolute', song ? 'cursor-pointer' : 'cursor-default')}
 					style={{ left: x, top: y }}
 					initial={false}
 					animate={{
@@ -183,7 +183,9 @@ export default function MusicCard() {
 						height: expanded ? expandedHeight : styles.height
 					}}
 					transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-					onMouseEnter={() => setExpanded(true)}
+					onMouseEnter={() => {
+						if (song) setExpanded(true)
+					}}
 					onMouseLeave={() => setExpanded(false)}>
 					<div className='flex h-full flex-col'>
 						{/* 主要内容区域 - 使用 motion 控制垂直位置 */}
@@ -341,7 +343,7 @@ export default function MusicCard() {
 			{/* 隐藏的 audio 元素 */}
 			<audio
 				ref={audioRef}
-				src={url || ''}
+				src={url || undefined}
 				muted={muted}
 				onTimeUpdate={handleTimeUpdate}
 				onEnded={handleEnded}
