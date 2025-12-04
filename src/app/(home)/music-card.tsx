@@ -8,9 +8,10 @@ import { useConfigStore } from './stores/config-store'
 import { CARD_SPACING } from '@/consts'
 import MusicSVG from '@/svgs/music.svg'
 import PlaySVG from '@/svgs/play.svg'
-import { Pause, SkipForward, Volume2, VolumeX } from 'lucide-react'
+import { Pause, SkipBack, SkipForward, Volume2, VolumeX } from 'lucide-react'
 import { HomeDraggableLayer } from './home-draggable-layer'
 import type { CachedSong, RandomSongResponse } from '@/app/api/music/types'
+import { cn } from '@/lib/utils'
 
 export default function MusicCard() {
 	const center = useCenterStore()
@@ -38,6 +39,9 @@ export default function MusicCard() {
 	const [currentTime, setCurrentTime] = useState(0)
 	const [duration, setDuration] = useState(0)
 	const [muted, setMuted] = useState(false)
+	const [volume, setVolume] = useState(0.5)
+	const [history, setHistory] = useState<{ song: CachedSong; url: string }[]>([])
+	const [historyIndex, setHistoryIndex] = useState(-1)
 
 	const fetchRandomSong = useCallback(async () => {
 		setLoading(true)
@@ -50,6 +54,8 @@ export default function MusicCard() {
 			if (data.success && data.song && data.url) {
 				setSong(data.song)
 				setUrl(data.url)
+				setHistory(prev => [...prev.slice(0, historyIndex + 1), { song: data.song!, url: data.url! }])
+				setHistoryIndex(prev => prev + 1)
 				return true
 			} else {
 				console.error('获取随机歌曲失败:', data.error)
@@ -61,7 +67,7 @@ export default function MusicCard() {
 		} finally {
 			setLoading(false)
 		}
-	}, [])
+	}, [historyIndex])
 
 	// 当 URL 变化时自动播放
 	useEffect(() => {
@@ -70,6 +76,13 @@ export default function MusicCard() {
 			audioRef.current.play().catch(console.error)
 		}
 	}, [url])
+
+	// 监听音量变化
+	useEffect(() => {
+		if (audioRef.current) {
+			audioRef.current.volume = volume
+		}
+	}, [volume])
 
 	const handlePlay = useCallback(async () => {
 		if (!song) {
@@ -87,11 +100,31 @@ export default function MusicCard() {
 	}, [song, isPlaying, fetchRandomSong])
 
 	const handleNext = useCallback(async () => {
-		const success = await fetchRandomSong()
-		if (success) {
+		if (historyIndex < history.length - 1) {
+			const nextIndex = historyIndex + 1
+			const nextItem = history[nextIndex]
+			setSong(nextItem.song)
+			setUrl(nextItem.url)
+			setHistoryIndex(nextIndex)
+			setIsPlaying(true)
+		} else {
+			const success = await fetchRandomSong()
+			if (success) {
+				setIsPlaying(true)
+			}
+		}
+	}, [fetchRandomSong, history, historyIndex])
+
+	const handlePrev = useCallback(() => {
+		if (historyIndex > 0) {
+			const prevIndex = historyIndex - 1
+			const prevItem = history[prevIndex]
+			setSong(prevItem.song)
+			setUrl(prevItem.url)
+			setHistoryIndex(prevIndex)
 			setIsPlaying(true)
 		}
-	}, [fetchRandomSong])
+	}, [history, historyIndex])
 
 	const handleTimeUpdate = useCallback(() => {
 		if (audioRef.current && audioRef.current.duration) {
@@ -110,6 +143,14 @@ export default function MusicCard() {
 		},
 		[duration]
 	)
+
+	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const newVolume = parseFloat(e.target.value)
+		setVolume(newVolume)
+		if (newVolume > 0 && muted) {
+			setMuted(false)
+		}
+	}
 
 	const handleEnded = useCallback(() => {
 		setIsPlaying(false)
@@ -149,7 +190,7 @@ export default function MusicCard() {
 						<motion.div
 							className='flex items-center gap-3'
 							animate={{
-								marginTop: expanded ? 0 : (styles.height - 24 - 40) / 2 - 6 // 居中计算: (卡片高度 - padding - 内容高度) / 2
+								marginTop: expanded ? 0 : (styles.height - 40) / 2 - 24 // 居中计算: (卡片高度 - 内容高度) / 2 - padding
 							}}
 							transition={{ type: 'spring', stiffness: 300, damping: 30 }}>
 							{/* 封面/默认图标 */}
@@ -199,7 +240,10 @@ export default function MusicCard() {
 							<button
 								onClick={handlePlay}
 								disabled={loading}
-								className='flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white transition-transform hover:scale-105 disabled:opacity-50'>
+								className={cn(
+									'flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white transition-all duration-300 hover:scale-105 disabled:opacity-50',
+									expanded ? 'pointer-events-none opacity-0' : 'opacity-100'
+								)}>
 								{loading ? (
 									<div className='border-brand h-4 w-4 animate-spin rounded-full border-2 border-t-transparent' />
 								) : isPlaying ? (
@@ -235,12 +279,35 @@ export default function MusicCard() {
 
 									{/* 控制按钮 */}
 									<div className='flex items-center justify-center gap-4'>
+										{/* 音量控制 */}
+										<div className='group relative flex items-center'>
+											<button
+												onClick={() => setMuted(!muted)}
+												className='rounded-full p-1.5 text-gray-500 transition-colors hover:bg-white/60'>
+												{muted || volume === 0 ? <VolumeX className='h-4 w-4' /> : <Volume2 className='h-4 w-4' />}
+											</button>
+											<div className='absolute left-full ml-1 w-0 overflow-hidden transition-all duration-300 group-hover:w-20'>
+												<input
+													type='range'
+													min='0'
+													max='1'
+													step='0.01'
+													value={muted ? 0 : volume}
+													onChange={handleVolumeChange}
+													className='h-1 w-16 cursor-pointer appearance-none rounded-full bg-gray-200 accent-teal-500'
+												/>
+											</div>
+										</div>
+
+										{/* 上一首 */}
 										<button
-											onClick={() => setMuted(!muted)}
-											className='rounded-full p-1.5 text-gray-500 transition-colors hover:bg-white/60'>
-											{muted ? <VolumeX className='h-4 w-4' /> : <Volume2 className='h-4 w-4' />}
+											onClick={handlePrev}
+											disabled={loading || historyIndex <= 0}
+											className='rounded-full p-1.5 text-gray-500 transition-colors hover:bg-white/60 disabled:opacity-30'>
+											<SkipBack className='h-4 w-4' />
 										</button>
 
+										{/* 播放/暂停 */}
 										<button
 											onClick={handlePlay}
 											disabled={loading}
@@ -254,6 +321,7 @@ export default function MusicCard() {
 											)}
 										</button>
 
+										{/* 下一首 */}
 										<button
 											onClick={handleNext}
 											disabled={loading}
